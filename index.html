@@ -85,8 +85,10 @@
 		<section id="welcome" class="welcome">
 			<div class="quote text-center">
 				<span class="author">
-					Soy una desarrolladora web full stack con un año de experiencia. Me emociona la tecnología y cómo la programación puede hacer cosas increíbles.
-					 Disfruto mucho crear soluciones útiles y me encanta ser parte de este mundo digital en constante cambio.
+					Soy una desarrolladora de software apasionada por crear soluciones tecnológicas que resuelvan problemas reales. 
+					Tengo experiencia en desarrollo web Full Stack, análisis de datos y automatización de procesos, utilizando tecnologías como 
+					Vue.js, Laravel, R y Python. Me motiva transformar ideas en aplicaciones funcionales, optimizar procesos y aprender 
+					constantemente para desarrollar soluciones cada vez mejores.
 				</span>
 			</div>
 			<div class="overlay"></div>
@@ -104,10 +106,9 @@
 			<div class="intro">
 
 				<ul class="info">
-					<li>Edad: 23 años </li>
+					<li>Edad: <span id="edad"></span> años</li>
 					<li>Locación: Aguascalientes </li>
 					<li>Email: jazminsuari@gmail.com</li>
-					<li>Numero de celular: 449-195-8787</li>
 				</ul>
 				<div class="section-header">
 				<h2>Redes Sociales</h2>
@@ -342,6 +343,30 @@
 <script type="text/javascript" src="js/owl.carousel.min.js"></script>
 <script type="text/javascript" src="js/custom.js"></script>
 <script type="text/javascript" src="js/smoothscroll.min.js"></script>
+<script>
+    function calcularMiEdad() {
+        const hoy = new Date();
+        const miFechaDeNacimiento = new Date("1999-12-23" + "T00:00:00");
+
+        let edad = hoy.getFullYear() - miFechaDeNacimiento.getFullYear();
+
+        const mesActual = hoy.getMonth();
+        const mesNacimiento = miFechaDeNacimiento.getMonth();
+
+        if (
+            mesActual < mesNacimiento ||
+            (mesActual === mesNacimiento &&
+             hoy.getDate() < nacimiento.getDate())
+        ) {
+            edad--;
+        }
+
+        return edad;
+    }
+
+    document.getElementById("edad").textContent =
+        calcularMiEdad();
+</script>
 
 </body>
 </html>
